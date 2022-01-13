@@ -1,0 +1,43 @@
+{% extends "casa/list.html" %}
+
+
+{% block before %}
+
+<a class="btn btn-success" href={% url 'create-cotatie' %} > Adauga</a>
+<br><br>
+{% endblock %}
+
+
+
+{% block tablehead %}
+    <th>Id</th>
+    <th>Valuta</th>
+    <th>Data</th>
+    <th>Ora</th>
+    <th>Curs vazare</th>
+    <th>Curs cumparare</th>
+{% endblock tablehead %}
+
+{% block object %}
+    <td>{{obj.id}}</td>
+    <td>{{obj.valuta}}</td>
+    <td>{{obj.data}}</td>
+    <td>{{obj.ora}}</td>
+
+    <td>{{obj.curs_vanzare}}</td>
+    <td>{{obj.curs_cumparare}}</td>
+
+{% endblock object %}
+
+
+{% block edit %}
+    <a href={% url 'edit-cotatie' obj.id %}> Edit </a>
+{% endblock edit %}
+
+
+{% block delete %}
+    <a class="danger" href={% url 'delete-cotatie' obj.id %}> Sterge </a>
+{% endblock delete %}
+
+{% block after %}
+{% endblock %}

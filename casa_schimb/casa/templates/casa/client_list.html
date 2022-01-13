@@ -1,0 +1,35 @@
+{% extends "casa/list.html" %}
+
+
+{% block before %}
+
+<a class="btn btn-success" href={% url 'create-client' %} > Adauga</a>
+<br><br>
+{% endblock %}
+
+
+
+{% block tablehead %}
+    <th>Nume</th>
+    <th>Prenume</th>
+{% endblock tablehead %}
+
+{% block object %}
+    <td>{{obj.nume}}</td>
+    <td>{{obj.prenume}}</td>
+
+{% endblock object %}
+
+
+{% block edit %}
+    <a href={% url 'edit-client' obj.id %}> Edit </a>
+{% endblock edit %}
+
+
+{% block delete %}
+    <a class="danger" href={% url 'delete-client' obj.id %}> Sterge </a>
+{% endblock delete %}
+
+
+{% block after %}
+{% endblock %}

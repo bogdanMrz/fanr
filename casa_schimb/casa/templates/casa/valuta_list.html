@@ -1,0 +1,38 @@
+{% extends "casa/list.html" %}
+
+
+
+
+{% block before %}
+
+<a class="btn btn-success" href={% url 'create-valuta' %} > Adauga</a>
+<br>
+{% endblock %}
+
+
+
+{% block tablehead %}
+    <th>Id</th>
+    <th>Nume</th>
+    <th>Tara</th>
+{% endblock tablehead %}
+
+{% block object %}
+    <td>{{obj.id}}</td>
+    <td>{{obj.nume}}</td>
+    <td>{{obj.tara}}</td>
+
+{% endblock object %}
+
+
+{% block edit %}
+    <a href={% url 'edit-valuta' obj.id %}> Edit </a>
+{% endblock edit %}
+
+
+{% block delete %}
+    <a class="danger" href={% url 'delete-valuta' obj.id%}> Sterge </a>
+{% endblock delete %}
+
+{% block after %}
+{% endblock %}

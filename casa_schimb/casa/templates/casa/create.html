@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block title %}Create{% endblock %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+{% block before %}{% endblock %}
+
+
+<form method="POST" class="form-group" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form|crispy }}
+
+	{{ sold|crispy }}
+	<button type="submit" class="btn btn-success">Trmite</button>
+</form>
+
+
+{% block after %}{% endblock %}
+
+
+{% endblock %}

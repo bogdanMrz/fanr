@@ -1,0 +1,61 @@
+{% extends "casa/list.html" %}
+
+
+{% block before %}
+
+<a class="btn btn-success" href={% url 'create-schimb' %} > Adauga</a>
+<br><br>
+
+
+<form action={% url 'schimb-list-date' %} method="GET" class="form-group" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ calendar }}
+	<button type="submit" class="btn btn-success">Cauta</button>
+</form>
+
+{% endblock %}
+
+
+
+{% block tablehead %}
+    <th>Id</th>
+    <th>client</th>
+    <th>Data</th>
+    <th>Ora</th>
+    <th>Tip</th>
+    <th>Valuta</th>
+    <th>Curs vazare</th>
+    <th>Curs cumparare</th>
+    <th>Suma lei</th>
+    <th>Suma valuta</th>
+    
+{% endblock tablehead %}
+
+{% block object %}
+    <td>{{obj.id}}</td>
+    <td>{{obj.client}}</td>
+    <td>{{obj.data}}</td>
+    <td>{{obj.ora}}</td>
+    <td>{{obj.tip}}</td>
+
+    <td>{{obj.cotatie.valuta}}</td>
+    <td>{{obj.cotatie.curs_vanzare}}</td>
+    <td>{{obj.cotatie.curs_cumparare}}</td>
+    <td>{{obj.suma_lei}}</td>
+    <td>{{obj.suma_valuta}}</td>
+
+
+{% endblock object %}
+
+
+{% block edit %}
+    <a href={% url 'edit-schimb' obj.id %}> Edit </a>
+{% endblock edit %}
+
+
+{% block delete %}
+    <a class="danger" href={% url 'delete-schimb' obj.id %}> Sterge </a>
+{% endblock delete %}
+
+{% block after %}
+{% endblock %}
